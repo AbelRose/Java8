@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 /**
@@ -50,4 +51,21 @@ public class TestStreamApi2 {
                 .distinct()
                 .forEach(System.out::println);
     }
+
+    @Test
+    public void test5() {
+        List<String> list =  Arrays.asList("aaa", "bbb", "ccc");
+        list.stream()
+                .map((str) -> str.toUpperCase(Locale.ROOT))
+                .forEach(System.out::println);
+    }
+
+    @Test
+    public void test7() {
+        List<String> list = Arrays.asList("ccc", "bbb", "aaa");
+        list.stream().sorted().forEach(System.out::println);
+
+        System.out.println("=====");
+    }
+
 }
